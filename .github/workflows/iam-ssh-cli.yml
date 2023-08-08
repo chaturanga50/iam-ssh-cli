@@ -51,7 +51,7 @@ jobs:
       run: |
         sed -i "s/{{VERSION_PLACEHOLDER}}/${{ env.BUILD_NUMBER }}/g" setup.py
         sed -i "s/{{VERSION_PLACEHOLDER}}/${{ env.BUILD_NUMBER }}/g" iam-ssh-cli/iam-ssh-cli.py
-        sed -i "s/{{VERSION_PLACEHOLDER}}/${{ env.BUILD_NUMBER }}/g" iam-ssh-cli/bin/iam-ssh-cli
+        sed -i "s/{{VERSION_PLACEHOLDER}}/${{ env.BUILD_NUMBER }}/g" bin/iam-ssh-cli
 
     - name: Build a binary wheel
       run: >-
