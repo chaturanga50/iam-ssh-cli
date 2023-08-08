@@ -50,7 +50,7 @@ jobs:
     - name: Update version in setup.py
       run: >-
         sed -i "s/{{VERSION_PLACEHOLDER}}/${{ env.BUILD_NUMBER }}/g" setup.py
-        sed -i "s/{{VERSION_PLACEHOLDER}}/${{ env.BUILD_NUMBER }}/g" iam-ssh-cli.py
+        sed -i "s/{{VERSION_PLACEHOLDER}}/${{ env.BUILD_NUMBER }}/g" iam-ssh-cli/iam-ssh-cli.py
 
     - name: Build a binary wheel
       run: >-
