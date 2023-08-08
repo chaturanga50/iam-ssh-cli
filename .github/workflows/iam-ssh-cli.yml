@@ -48,7 +48,7 @@ jobs:
         pip install wheel
 
     - name: Update version in setup.py
-      run: >-
+      run: |
         sed -i "s/{{VERSION_PLACEHOLDER}}/${{ env.BUILD_NUMBER }}/g" setup.py
         sed -i "s/{{VERSION_PLACEHOLDER}}/${{ env.BUILD_NUMBER }}/g" iam-ssh-cli/iam-ssh-cli.py
 
