@@ -35,3 +35,4 @@ Configuration
 ~~~~~~~~~~~~~
 
 Before using the iam-ssh-cli, you need to configure your AWS credentials.
+
