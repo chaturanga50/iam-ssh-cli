@@ -8,6 +8,7 @@
 import boto3
 import os
 import subprocess
+from pwd import getpwnam 
 
 
 def create_user(username):
@@ -46,7 +47,9 @@ def write_ssh_key(username, body, path):
     keys.write("\n")
     keys.close()
     # Change permissions
-    os.chown(path, username, username)
+    user_id = getpwnam(username).pw_uid
+    group_id = grp.getgrnam(username)[2]
+    os.chown(path, user_id, group_id)
 
 
 def get_user_ssh(username):

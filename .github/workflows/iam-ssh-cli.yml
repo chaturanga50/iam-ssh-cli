@@ -61,3 +61,16 @@ jobs:
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         password: ${{ secrets.PYPI_API_TOKEN }}
+    
+    - name: Create Tag
+      if: github.ref == 'refs/heads/main' && success()
+      uses: actions/github-script@v3
+      with:
+        github-token: ${{ github.token }}
+        script: |
+          github.git.createRef({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            ref: "refs/tags/v${{ env.BUILD_NUMBER }}",
+            sha: context.sha
+          })
